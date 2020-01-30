@@ -1,10 +1,7 @@
 package mehmedov.recipeapp.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -14,6 +11,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
+
+    @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipe;
 
     public Long getId() {
